@@ -1,0 +1,10 @@
+name: OED
+on :
+    issues:
+        types: opened
+jobs:
+    opEvent:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echos
+              run: echo "{{toJSON($github.event)}}"

@@ -1,0 +1,30 @@
+name: LTD
+on: push
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
+            - name: test runner
+              run: npm test 
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
+            - name: deploy
+              run: npm run build
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code
+              uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
+            - name: lint
+              run: npm run lint
